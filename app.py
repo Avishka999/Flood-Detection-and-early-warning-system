@@ -1,3 +1,4 @@
+
 import os
 import sqlite3
 from flask import Flask, send_from_directory, request, jsonify
@@ -23,7 +24,7 @@ def init_db():
     conn.commit()
     conn.close()
 
-#API Endpoint to Save User Data
+#API Endpoint to Save User Data..
 
 @app.route('/save_details', methods=['POST'])
 def save_details():
@@ -68,3 +69,4 @@ def serve_static_files(path):
 if __name__ == '__main__':
     init_db()
     app.run(host='0.0.0.0', port=5000, debug=True)
+
