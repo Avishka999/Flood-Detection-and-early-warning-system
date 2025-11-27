@@ -7,7 +7,7 @@ from flask_cors import CORS
 app = Flask(__name__, static_folder='../frontend')
 CORS(app) 
 
-# database.
+# database
 def init_db():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
@@ -24,7 +24,7 @@ def init_db():
     conn.commit()
     conn.close()
 
-#API Endpoint to Save User Data..
+#API Endpoint to Save User Data....
 
 @app.route('/save_details', methods=['POST'])
 def save_details():
@@ -57,7 +57,7 @@ def save_details():
         print(f"Error saving to database: {e}")
         return jsonify({"error": "Could not save details to the database."}), 500
 
-#Routes to Serve Frontend Files
+#Routes to Serve Frontend Files....
 @app.route('/')
 def serve_index():
     return send_from_directory(app.static_folder, 'index.html')
@@ -69,4 +69,5 @@ def serve_static_files(path):
 if __name__ == '__main__':
     init_db()
     app.run(host='0.0.0.0', port=5000, debug=True)
+
 
