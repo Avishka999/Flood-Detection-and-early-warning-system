@@ -7,7 +7,7 @@ from flask_cors import CORS
 app = Flask(__name__, static_folder='../frontend')
 CORS(app) 
 
-# database
+# database part
 def init_db():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
@@ -48,7 +48,7 @@ def save_details():
         conn.commit()
         conn.close()
         
-        # Send message back to the frontend
+        # Send message back to the frontend.
         return jsonify({"message": "Account details saved successfully!"}), 200
 
     except sqlite3.IntegrityError:
